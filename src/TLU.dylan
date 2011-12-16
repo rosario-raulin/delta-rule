@@ -39,3 +39,15 @@ define method print-object (object :: <TLU>, stream :: <stream>)
          object.output,
          object.threshold);
 end method print-object;
+
+// For the lazy ones we have tlu() to generate <TLU> objects
+define generic tlu (input, output, #key threshold)
+ => (tlu :: <TLU>);
+
+define inline method tlu (input :: <TLU-input-vector>,
+                          output :: <TLU-output>,
+                          #key threshold :: <single-float>
+                               = as(<single-float>, random($random-limit)))
+ => (tlu :: <TLU>)
+  make(<TLU>, input: input, output: output, threshold: threshold);
+end method tlu;

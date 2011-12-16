@@ -20,7 +20,8 @@ define module TLU
     output,
     output-setter,
     threshold,
-    threshold-setter;
+    threshold-setter,
+    tlu;
 
   use common-dylan, exclude: { format-to-string };
   use format;
