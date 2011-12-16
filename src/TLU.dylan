@@ -13,7 +13,7 @@ define class <TLU-input> (<object>)
   
   slot weight :: <single-float>,
     init-keyword: weight:,
-    init-value: as(<integer>, random($random-limit));
+    init-value: as(<single-float>, random($random-limit));
 end class <TLU-input>;
 
 define class <TLU> (<object>)
@@ -25,7 +25,7 @@ define class <TLU> (<object>)
 
   slot threshold :: <single-float>,
     init-keyword: threshold:,
-    init-value: as(<integer>, random($random-limit));
+    init-value: as(<single-float>, random($random-limit));
 end class <TLU>;
 
 define method print-object (object :: <TLU>, stream :: <stream>)
@@ -38,4 +38,4 @@ define method print-object (object :: <TLU>, stream :: <stream>)
   format(stream, " -> %= ==> %=",
          object.output,
          object.threshold);
-end;
+end method print-object;
