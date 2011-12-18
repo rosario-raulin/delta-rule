@@ -1,1 +1,18 @@
-A program to train a Threshold Logic Unit written in Dylan.
+An implementation of the delta rule to train a threshold logic unit based
+loosely on the algorithms described by Rudolf Kruse (et al.) in "Computational
+Intelligence" (2011, Vieweg+Teubner, first copy).
+
+It is written in (portable) Common Lisp and requires alexandria (see
+http://common-lisp.net/project/alexandria/).
+
+There's only one interesting function (namely "online-training!") which has the
+following signature
+
+	  (online-training! (examples &key step weights threshold))
+
+The only required argument is "examples" which is a list of pairs. Each pair
+consists of an array (representing the input variables) and a value
+(representing the expected result).
+
+Omitted keyword arguments are randomely generated. Use *random-limit* to
+control the maximum value generated.
